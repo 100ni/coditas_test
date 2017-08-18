@@ -14,6 +14,7 @@ import com.coditas.data.entity.UserEntity;
 import com.coditas.repository.UserJpaRepository;
 import com.coditas.service.NoteService;
 import com.coditas.service.UserService;
+import com.coditas.service.exception.ServiceException;
 
 @Service
 @Transactional
@@ -52,10 +53,16 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User create(User user) {
+	public User create(User user) throws ServiceException{
 		UserEntity userEntity = mapUserToUserEntity(user);
 		userEntity.setCreateTime(new Date());
 		userEntity.setUpdateTime(new Date());
+		
+		UserEntity emailCheck = userJpaRepository.findByEmail(user.getEmail());
+		if(emailCheck != null ) {
+			throw new ServiceException("User email already exists !");
+		}
+		
 		UserEntity userEntitySaved = userJpaRepository.save(userEntity);
 		return mapUserEntityToUser(userEntitySaved);
 	}
