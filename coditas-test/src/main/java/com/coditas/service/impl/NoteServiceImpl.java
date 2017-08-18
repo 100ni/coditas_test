@@ -1,5 +1,6 @@
 package com.coditas.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -7,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.coditas.data.dto.Note;
+import com.coditas.data.entity.NoteEntity;
 import com.coditas.repository.NoteJpaRepository;
 import com.coditas.service.NoteService;
 import com.coditas.service.UserService;
@@ -27,9 +29,13 @@ public class NoteServiceImpl implements NoteService {
 	}
 
 	@Override
-	public List<Note> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<NoteEntity> findAll() {
+		Iterable entities = noteRepository.findAll();
+		List list = new ArrayList<NoteEntity>();
+		entities.forEach(item -> {
+			list.add(item);
+		});
+		return list;
 	}
 
 	@Override

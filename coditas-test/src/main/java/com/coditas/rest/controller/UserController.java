@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coditas.data.dto.User;
+import com.coditas.data.entity.UserEntity;
 import com.coditas.service.UserService;
 
 @RestController
@@ -30,7 +31,7 @@ public class UserController {
 			produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public List<User> findAll() {
+	public List<UserEntity> findAll() {
 		return userService.findAll();
 	}
 

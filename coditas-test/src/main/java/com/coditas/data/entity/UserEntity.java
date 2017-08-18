@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="user" )
 public class UserEntity implements Serializable {
@@ -42,6 +44,7 @@ public class UserEntity implements Serializable {
     @Column(name="update_time")
     private Date       updateTime   ;
 
+    @JsonIgnore
     @OneToMany(mappedBy="user", targetEntity=NoteEntity.class)
     private List<NoteEntity> listOfNote  ;
 

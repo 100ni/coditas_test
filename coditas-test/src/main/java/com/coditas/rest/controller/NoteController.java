@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coditas.data.dto.Note;
+import com.coditas.data.entity.NoteEntity;
 import com.coditas.service.NoteService;
 
 @RestController
@@ -28,7 +29,7 @@ public class NoteController {
 			produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public List<Note> findAll() {
+	public List<NoteEntity> findAll() {
 		return noteService.findAll();
 	}
 

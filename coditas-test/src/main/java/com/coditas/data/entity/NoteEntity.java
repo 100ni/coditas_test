@@ -43,6 +43,7 @@ public class NoteEntity implements Serializable {
     @Column(name="update_time")
     private Date       updateTime   ;
 
+    
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName="id")
     private UserEntity user        ;

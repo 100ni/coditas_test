@@ -3,6 +3,7 @@ package com.coditas.service;
 import java.util.List;
 
 import com.coditas.data.dto.Note;
+import com.coditas.data.entity.NoteEntity;
 
 /**
  * Business Service Interface for entity Note.
@@ -20,7 +21,7 @@ public interface NoteService {
 	 * Loads all entities.
 	 * @return all entities
 	 */
-	List<Note> findAll();
+	List<NoteEntity> findAll();
 
 	/**
 	 * Saves the given entity in the database (create or update)

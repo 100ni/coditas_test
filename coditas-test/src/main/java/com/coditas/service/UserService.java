@@ -3,6 +3,7 @@ package com.coditas.service;
 import java.util.List;
 
 import com.coditas.data.dto.User;
+import com.coditas.data.entity.UserEntity;
 
 /**
  * Business Service Interface for entity User.
@@ -20,7 +21,7 @@ public interface UserService {
 	 * Loads all entities.
 	 * @return all entities
 	 */
-	List<User> findAll();
+	List<UserEntity> findAll();
 
 	/**
 	 * Saves the given entity in the database (create or update)
