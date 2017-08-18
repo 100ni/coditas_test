@@ -18,14 +18,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="user" )
-public class UserEntity implements Serializable {
+public class UserEntity extends BaseEntity  {
 
-    private static final long serialVersionUID = 1L;
-
-    @Id
+ 
+    /*@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id", nullable=false)
-    private Integer    id           ;
+    private Integer    id           ;*/
 
     @Column(name="name", length=80)
     private String     name         ;
@@ -36,13 +35,13 @@ public class UserEntity implements Serializable {
     @Column(name="password", length=40)
     private String     password     ;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    /*@Temporal(TemporalType.TIMESTAMP)
     @Column(name="create_time")
     private Date       createTime   ;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="update_time")
-    private Date       updateTime   ;
+    private Date       updateTime   ;*/
 
     @JsonIgnore
     @OneToMany(mappedBy="user", targetEntity=NoteEntity.class)
@@ -53,14 +52,14 @@ public class UserEntity implements Serializable {
     }
 
 
-	public Integer getId() {
+	/*public Integer getId() {
 		return id;
 	}
 
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
+	}*/
 
 
 	public String getName() {
@@ -93,7 +92,7 @@ public class UserEntity implements Serializable {
 	}
 
 
-	public Date getCreateTime() {
+	/*public Date getCreateTime() {
 		return createTime;
 	}
 
@@ -110,7 +109,7 @@ public class UserEntity implements Serializable {
 
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
-	}
+	}*/
 
 
 	public List<NoteEntity> getListOfNote() {

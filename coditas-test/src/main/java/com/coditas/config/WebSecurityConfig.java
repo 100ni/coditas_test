@@ -45,11 +45,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		 	
 		    .and()
 		    .authorizeRequests()
-	        .antMatchers(HttpMethod.POST, REST_LOGIN_ENTRY_POINT).permitAll()
-	        .anyRequest().authenticated()
+	        .antMatchers(HttpMethod.POST, REST_LOGIN_ENTRY_POINT).permitAll();
+	        //.anyRequest().authenticated()
 	        
-	        .and()
-	        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	        //.and()
+	        //.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	        
 	        //.and()
 	        // And filter other requests to check the presence of JWT in header

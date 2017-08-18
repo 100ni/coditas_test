@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public User getUserByLoginId(String loginId) {
-		UserEntity userEntity = userJpaRepository.findByLoginId(loginId);
+		UserEntity userEntity = userJpaRepository.findByName(loginId);
 		return mapUserEntityToUser(userEntity);
 	}
 	
