@@ -38,7 +38,7 @@ public class NoteController {
 			produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public Note findOne(@PathVariable("id") Integer id) {
+	public NoteEntity findOne(@PathVariable("id") Integer id) {
 		return noteService.findById(id);
 	}
 	

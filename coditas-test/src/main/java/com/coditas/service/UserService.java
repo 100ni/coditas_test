@@ -15,7 +15,7 @@ public interface UserService {
 	 * @param id
 	 * @return entity
 	 */
-	User findById( Integer id  ) ;
+	UserEntity findById( Integer id  ) ;
 
 	/**
 	 * Loads all entities.

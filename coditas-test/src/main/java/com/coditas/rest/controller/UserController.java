@@ -40,7 +40,7 @@ public class UserController {
 			produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public User findOne(@PathVariable("id") Integer id) {
+	public UserEntity findOne(@PathVariable("id") Integer id) {
 		return userService.findById(id);
 	}
 	

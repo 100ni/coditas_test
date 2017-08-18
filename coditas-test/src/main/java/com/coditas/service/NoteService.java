@@ -15,7 +15,7 @@ public interface NoteService {
 	 * @param id
 	 * @return entity
 	 */
-	Note findById( Integer id  ) ;
+	NoteEntity findById( Integer id  ) ;
 
 	/**
 	 * Loads all entities.
