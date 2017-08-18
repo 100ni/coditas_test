@@ -1,6 +1,7 @@
 package com.coditas.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -28,7 +29,13 @@ public class UserServiceImpl implements UserService{
 	public UserEntity findById(Integer id) {
 		return userJpaRepository.findOne(id);
 	}
-
+	
+	@Override
+	public User getUserByLoginId(String loginId) {
+		UserEntity userEntity = userJpaRepository.findByLoginId(loginId);
+		return mapUserEntityToUser(userEntity);
+	}
+	
 	@Override
 	public List<UserEntity> findAll() {
 		List<UserEntity> users = userJpaRepository.findAll();
@@ -47,6 +54,8 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User create(User user) {
 		UserEntity userEntity = mapUserToUserEntity(user);
+		userEntity.setCreateTime(new Date());
+		userEntity.setUpdateTime(new Date());
 		UserEntity userEntitySaved = userJpaRepository.save(userEntity);
 		return mapUserEntityToUser(userEntitySaved);
 	}
@@ -55,6 +64,7 @@ public class UserServiceImpl implements UserService{
 	public User update(User user) {
 		UserEntity userEntity = userJpaRepository.findOne(user.getId());
 		userEntity = mapUserToUserEntity(user, userEntity);
+		userEntity.setUpdateTime(new Date());
 		UserEntity userEntitySaved = userJpaRepository.save(userEntity);
 		return mapUserEntityToUser(userEntitySaved);
 	}
@@ -88,6 +98,7 @@ public class UserServiceImpl implements UserService{
 	}
 	User mapUserEntityToUser(UserEntity entity) {
 		User user = new User();
+		user.setId(entity.getId());
 		user.setName(entity.getName());
 		user.setEmail(entity.getEmail());
 		user.setPassword(entity.getPassword());

@@ -9,7 +9,8 @@ import com.coditas.data.entity.UserEntity;
  * Business Service Interface for entity User.
  */
 public interface UserService { 
-
+	
+	
 	/**
 	 * Loads an entity from the database using its Primary Key
 	 * @param id
@@ -50,5 +51,10 @@ public interface UserService {
 	 */
 	void delete( Integer id );
 
-
+	/**
+	 * User service for authentication
+	 * @param loginId
+	 * @return
+	 */
+	User getUserByLoginId(String loginId);
 }

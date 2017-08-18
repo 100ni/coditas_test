@@ -96,6 +96,7 @@ public class NoteServiceImpl implements NoteService {
 	
 	Note mapNoteEntityToNote(NoteEntity entity) {
 		Note note = new Note();
+		note.setId(entity.getId());
 		note.setNote(entity.getNote());
 		note.setTitle(entity.getTitle());
 		note.setCreateTime(entity.getCreateTime());

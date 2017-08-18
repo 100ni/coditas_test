@@ -1,8 +1,9 @@
 package com.coditas.data.dto;
 
 import java.io.Serializable;
-
 import java.util.Date;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 public class User implements Serializable
 {
@@ -10,8 +11,13 @@ public class User implements Serializable
 
     private Integer    id           ; // Primary Key
 
+    @NotBlank(message = "username can't empty!")
     private String     name         ;
+    
+    @NotBlank(message = "Email address can't empty!")
     private String     email        ;
+    
+    @NotBlank(message = "Password address can't empty!")
     private String     password     ;
     private Date       createTime   ;
     private Date       updateTime   ;
