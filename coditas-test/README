@@ -1,0 +1,44 @@
+Rest endpoint for user CRUD
+-------------------------------------------
+GET http://localhost:8080/user/{id}
+ 
+POST http://localhost:8080/user
+Payload
+{
+	"id": '1'
+    "name": "REST",
+    "email": "milind@gmail.com",
+    "password": "mtest"
+}
+
+PUT http://localhost:8080/user
+Payload
+{
+    "name": "REST",
+    "email": "milind@gmail.com",
+    "password": "mtest"
+}
+
+
+Rest endpoint for notes CRUD
+----------------------------------------------
+GET http://localhost:8080/note/{id}
+
+POST http://localhost:8080/note
+Payload
+{
+	
+	"title": "spring batch",
+    "note": "Spring batch applications ",
+    "userId":1
+}
+ 
+PUT http://localhost:8080/note 
+  
+Payload
+{
+	id:1,
+	"title": "spring batch",
+    "note": "Spring batch applications ",
+    "userId":1
+}

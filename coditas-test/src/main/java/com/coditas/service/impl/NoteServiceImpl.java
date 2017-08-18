@@ -1,6 +1,7 @@
 package com.coditas.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,9 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.coditas.data.dto.Note;
-import com.coditas.data.dto.User;
 import com.coditas.data.entity.NoteEntity;
-import com.coditas.data.entity.UserEntity;
 import com.coditas.repository.NoteJpaRepository;
 import com.coditas.service.NoteService;
 import com.coditas.service.UserService;
@@ -50,6 +49,8 @@ public class NoteServiceImpl implements NoteService {
 	public Note create(Note note) {
 
 		NoteEntity noteEntity =  mapNoteToNoteEntity(note);
+		noteEntity.setCreateTime(new Date());
+		noteEntity.setUpdateTime(new Date());
 		NoteEntity noteEntitySaved = noteJpaRepository.save(noteEntity);
 		return mapNoteEntityToNote(noteEntitySaved);
 	}
@@ -58,6 +59,7 @@ public class NoteServiceImpl implements NoteService {
 	public Note update(Note note) {
 		NoteEntity noteEntity = noteJpaRepository.findOne(note.getId());
 		noteEntity = mapNoteToNoteEntity(note, noteEntity);
+		noteEntity.setUpdateTime(new Date());
 		NoteEntity noteEntitySaved = noteJpaRepository.save(noteEntity);
 		return mapNoteEntityToNote(noteEntitySaved);
 	}
