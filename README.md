@@ -1,7 +1,3 @@
-# coditas_test
-
-Rest endpoint for user CRUD
--------------------------------------------
 GET http://localhost:8080/user/{id}
  
 POST http://localhost:8080/user
@@ -15,22 +11,18 @@ Payload
 PUT http://localhost:8080/user
 Payload
 {
-	"id": '1',
+    "id": '1',
     "name": "REST",
     "email": "milind@gmail.com",
     "password": "mtest"
 }
 
-
-Rest endpoint for notes CRUD
-----------------------------------------------
 GET http://localhost:8080/note/{id}
 
 POST http://localhost:8080/note
 Payload
 {
-	
-	"title": "spring batch",
+    "title": "spring batch",
     "note": "Spring batch applications ",
     "userId":1
 }
@@ -38,8 +30,8 @@ Payload
 PUT http://localhost:8080/note 
 Payload
 {
-	id:1,
-	"title": "spring batch",
+     id:1,
+     "title": "spring batch",
     "note": "Spring batch applications ",
     "userId":1
 }
